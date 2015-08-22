@@ -1,0 +1,35 @@
+
+body {
+	background-image: url('../pics/RIMG0836.JPG');
+	background-repeat: no-repeat;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+    background-attachment: fixed;
+	font-family: 'Chelsea Market', cursive;
+	color: orange;
+	text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000; 
+}
+
+h1 {
+	font-size: 50px;
+	text-align: center;
+	margin-top: 0;
+}
+
+.clockType {
+	margin-top: 20%;
+	font-size: 90px;
+	padding: 4px;
+	text-align: center;
+}
+
+button {
+	margin-left: auto;	
+	margin-right: auto;
+}
