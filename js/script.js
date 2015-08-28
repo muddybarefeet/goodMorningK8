@@ -1,4 +1,5 @@
 
+
 var init = function(){
 	timeDisplay = document.createTextNode("");
 	document.getElementById("clock").appendChild(timeDisplay);
@@ -54,15 +55,19 @@ $(function() {
 
 	$(edit).blur(function() {
 		localStorage.setItem('name', edit.textContent);
-		console.log(localStorage);
 	});
 
 	if(localStorage.getItem('name')) {
 		edit.textContent = localStorage.getItem('name');
-	console.log(name);
+		
 	}
 	
 });
+
+
+
+
+
 
 
 
