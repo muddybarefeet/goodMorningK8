@@ -15,105 +15,13 @@ body {
   padding: 0;
 }
 
-.fa-anchor {
-  position: absolute;
-  right: 2px;
-  top: 2px;
-  color: #031634;
-  border: 1px solid #031634;
-  border-radius: 4px;
-  padding: 5px;
-  background-color: #E8DDCB;
-  z-index: 2;
-}
-
-.fa-anchor:hover {
-  cursor: pointer;
-  background-color: #031634;
-  color: #E8DDCB;
-}
-
+/*Middle content*/
 .middle {
   width: 33%;
   position: absolute;
   left: 33%;
-}
-
-.aside {
-  width: 33%;
-  position: absolute;
-  right: 0;
-  z-index: 1;
-}
-
-.hidden {
-  display: none;
-}
-
-
-.middle {
   margin-top: 200px;
 }
-
-.aside {
-  size: 40px;
-  background-color: rgba(3, 54, 73, 0.3);
-  font-family: 'Coming Soon', cursive;
-}
-
-.aside h3, .aside ul li, .aside textarea {
-  color: #031634;
-}
-
-
-.aside h3, .aside ul li {
-  text-indent: 10px;
-}
-
-#messagesDiv {
-  height:460px;
-  min-height: 10px;
-  overflow: scroll;
-  margin: 0;
-  padding: 0;
-}
-
-h3 {
-  font-weight: bold;
-  border-bottom: 2px solid #031634;
-  background-color: rgba(3, 54, 73, 0.5);
-  margin-top: 0;
-  padding-top: 20px;
-}
-
-.aside textarea {
-  margin: 2%;
-}
-
-.aside ul {
-  margin-top: 20px;
-  list-style-type: none;
-  margin-left: 0;
-  padding: 10px;
-}
-
-.aside textarea {
-  font-family: 'Coming Soon', cursive;
-  font-size: 15px;
-  width: 95%;
-  color: #033649;
-  border: 2px solid #031634;
-  margin-top: 20px;
-  height: 50%;
-}
-
-.chatBox {
-  margin-top: 0;
-  background-color: rgba(3, 54, 73, 0.5);
-  height: 150px;
-  border-top: 2px solid #031634;
-}
-
 
 h1 {
 	font-size: 50px;
@@ -139,6 +47,91 @@ h1 {
 button {
 	margin-left: auto;	
 	margin-right: auto;
+}
+
+/*chatbox*/
+.fa-anchor {
+  position: absolute;
+  right: 2px;
+  top: 2px;
+  color: #031634;
+  border: 1px solid #031634;
+  border-radius: 4px;
+  padding: 5px;
+  background-color: #E8DDCB;
+  z-index: 2;
+}
+
+.fa-anchor:hover {
+  cursor: pointer;
+  background-color: #031634;
+  color: #E8DDCB;
+}
+
+.hidden {
+  display: none;
+}
+
+.aside {
+  width: 33%;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: 1;
+  background-color: rgba(3, 54, 73, 0.3);
+  font-family: 'Coming Soon', cursive;
+  color: #E8DDCB;
+}
+
+.aside h3, .aside ul li {
+  text-indent: 10px;
+}
+
+.messages {
+  overflow-y: scroll;
+  height: 800px;
+}
+
+#messagesDiv {
+  margin: 0;
+  padding: 0;
+}
+
+#barFormat {
+  width: 100%;
+  height: 60px;
+}
+
+h3 {
+  font-weight: bold;
+  border-bottom: 2px solid #031634;
+  background-color: rgba(3, 54, 73, 0.5);
+  padding-top: 30px;
+}
+
+
+.aside ul {
+  margin-top: 20px;
+  list-style-type: none;
+  margin-left: 0;
+  padding: 10px;
+}
+
+.chatBox {
+  margin-top: 0;
+  background-color: rgba(3, 54, 73, 0.5);
+  border-top: 2px solid #031634;
+  overflow: hidden;
+}
+
+.aside textarea {
+  margin: 2%;
+  font-family: 'Coming Soon', cursive;
+  font-size: 15px;
+  width: 95%;
+  color: #033649;
+  border: 2px solid #031634;
+  margin-top: 20px;
 }
 
 

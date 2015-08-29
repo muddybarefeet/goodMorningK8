@@ -64,6 +64,23 @@ $(function() {
 	
 });
 
+//window resize function for chat bar messages not to push the topper off the top of the page!
+
+$( window ).resize( function(){
+
+  var wHeight = window.innerHeight;
+  var topH = $('#barFormat').height();
+  var bottomH = $('.chatBox').height();
+
+  var newHeight = wHeight - topH - bottomH;
+
+  $('.messages').height(newHeight);
+
+});
+
+//function to pick a new image each x amount of time
+
+
 
 
 
