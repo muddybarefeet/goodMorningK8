@@ -5,97 +5,68 @@
 	<meta charset="utf-8">
 	<title>Good Morning</title>
 	<link rel="stylesheet" href="css/styles.css">
-	<link href='http://fonts.googleapis.com/css?family=Chelsea+Market' rel='stylesheet' type='text/css'>
-	<link href='http://fonts.googleapis.com/css?family=Coming+Soon' rel='stylesheet' type='text/css'>
-  
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.5/css/weather-icons.min.css">
+  <link href='http://fonts.googleapis.com/css?family=Chelsea+Market' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Coming+Soon' rel='stylesheet' type='text/css'>
+
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
   <!-- Fall back to local in case the CDN isn't availableJavaScript -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>
  
 
   <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
-	<link rel="stylesheet" href="./font-awesome-4.4.0/css/font-awesome.min.css">
-	<script src="js/script.js"></script>
+  <link rel="stylesheet" href="./font-awesome-4.4.0/css/font-awesome.min.css">
+  <script src="js/script.js"></script>
 	
 	</head>
 
-	<body onload="updateClock(); setInterval('updateClock()', 1000)">
-	
+	<body>
+<!-- left side -->
+  <section class="leftSide">
+    
+    <div class="wIconTemp"></div> <!-- to put weather icon and temp -->
 
+  </section>
 
-	<script>
-
-		$(document).ready(function(){
-	   $("#anchorsAway").on('click', function(e) { 
-				$('.buttons').toggleClass("hidden");
-			});
-		});
-
-
-	</script>
-  
-  <div class="chatSide">    
-
-    <i id="anchorsAway" class="fa fa-anchor fa-2x"></i>
-  	
-    <div class="hidden buttons">
-  			
-        <section id='chat' class="aside"> <!-- JUST CANT GET THIS TO STAY ON THE PAGE GRRR -->
-
-    			<div id="barFormat">
-    				<h3>Yammerer</h3>
-    			</div>	
-  				
-  				<div class="messages">
-  					<ul id='messagesDiv'></ul>
-  				</div>
-
-  		    <div class="chatBox">
-  		    	<textarea id='messageInput' name='message' placeholder="messages" type="text"></textarea>
-  		    </div>
-
-  			</section>
-
-  	</div>
-  
-  </div>
-
-
-
+<!-- middle content -->
 	<section class="middle">
 		<div class="clockType">
   			<span id="clock">&nbsp;</span>
 		</div>
-		
+
+
 		<h1 class="spacing">Good <span id="mornArvo"> </span> <span id="edit" contenteditable="true">____</span> </h1>
 	</section>
 
-		<script>
 
-		//when the button clicked I want messages to appear :)
-      var myDataRef = new Firebase('https://pm9haxvsd30.firebaseio-demo.com/');
+    <div class="chatSide">    
+
+      <i id="anchorsAway" class="fa fa-anchor fa-2x navy onClick"></i>
       
-      $('#messageInput').keypress(function (e) {
-        if (e.keyCode == 13) {
-          var name = localStorage.getItem('name');
-          var text = $('#messageInput').val();
-          myDataRef.push({name: name, text: text});
-          $('#messageInput').val('');
-        }
-      });
+      <div class="hidden messBar">
+          
+          <section id='chat' class="aside"> 
 
-      myDataRef.on('child_added', function(snapshot) {
-        var message = snapshot.val(); 
-        displayChatMessage(message.name, message.text);
-      });
+            <div id="barFormat">
+              <h3>Yammerer</h3>
+            </div>  
+            
+            <div class="messages">
+              <ul id='messagesDiv'></ul>
+            </div>
 
-      function displayChatMessage(name, text) {
-        $('<li/>').text(text).prepend($('<span/>').text(name+': ')).appendTo($('#messagesDiv'));
-        $('#messagesDiv')[0].scrollTop = $('#messagesDiv')[0].scrollHeight;
-      };
+            <div class="chatBox">
+              <textarea id='messageInput' name='message' placeholder="messages" type="text"></textarea>
+            </div>
 
-    </script>
+          </section>
 
-	</body>
+      </div>
+    
+    </div>
+
+
+  </body>
 
 <html>

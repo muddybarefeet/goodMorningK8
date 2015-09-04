@@ -1,13 +1,13 @@
 
 
 body {
-	background-image: url('../pics/RIMG0836.JPG');
+	background-image: url('../pics/9.JPG'); /*default image*/
 	background-repeat: no-repeat;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
 	background-size: cover;
-    background-attachment: fixed;
+  background-attachment: fixed;
 	font-family: 'Chelsea Market', cursive;
 	color: #036564;
   height: 100%;
@@ -15,12 +15,28 @@ body {
   padding: 0;
 }
 
+/*weather icon*/
+
+.wIconTemp {
+  color: white;
+  position: absolute;
+  left: 20px;
+  top: 15px;
+}
+
+.temp {
+  position: fixed;
+  top: 50px;
+  font-size: 20px;
+}
+
 /*Middle content*/
 .middle {
-  width: 33%;
+  width: 40%;
   position: absolute;
-  left: 33%;
+  margin-left: 29%;
   margin-top: 200px;
+  min-width: 390px;
 }
 
 h1 {
@@ -44,6 +60,11 @@ h1 {
     1px 1px 0 #000; 
 }
 
+#clock {
+  min-width: 400px;
+  display: block;
+}
+
 button {
 	margin-left: auto;	
 	margin-right: auto;
@@ -52,20 +73,29 @@ button {
 /*chatbox*/
 .fa-anchor {
   position: absolute;
-  right: 2px;
-  top: 2px;
-  color: #031634;
-  border: 1px solid #031634;
-  border-radius: 4px;
+  right: 10px;
+  top: 0;
+  border-radius: 0 0 4px 4px;
   padding: 5px;
   background-color: #E8DDCB;
   z-index: 2;
+  box-shadow: 2px 2px 5px #031634;
+
 }
+
+.navy {
+  color: #031634;
+}
+
+.red {
+  color: red;
+}
+
 
 .fa-anchor:hover {
   cursor: pointer;
-  background-color: #031634;
-  color: #E8DDCB;
+  box-shadow: none;
+  
 }
 
 .hidden {
@@ -73,7 +103,7 @@ button {
 }
 
 .aside {
-  width: 33%;
+  width: 25%;
   position: absolute;
   bottom: 0;
   right: 0;
@@ -104,7 +134,7 @@ button {
 
 h3 {
   font-weight: bold;
-  border-bottom: 2px solid #031634;
+  border-bottom: 2px solid #E8DDCB;
   background-color: rgba(3, 54, 73, 0.5);
   padding-top: 30px;
 }
@@ -131,7 +161,7 @@ h3 {
   width: 95%;
   color: #033649;
   border: 2px solid #031634;
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 
