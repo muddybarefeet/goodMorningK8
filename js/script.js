@@ -98,37 +98,34 @@ $(document).ready(function() {
 
 
 	$.getJSON("http://api.openweathermap.org/data/2.5/weather?lat=37.7749295&lon=-122.4194155", function(data){
-		console.log(data.weather[0].id);
-		var weatherTypeId;
+    var weatherTypeId;
 		var averageTemp = Math.round((data.main.temp)-273.15); //average temp converted from kelvin to celcius
-		if(data.weather[0].id !== 800 || data.weather[0].id !== 804) {
-			weatherTypeId = Math.ceil(data.weather[0].id/100)*100; //weather description id
-		} else {
-			weatherTypeId = data.weather[0].id;
-		}
-console.log(data.weather[0].id);
+    if(data.weather[0].id===804 || data.weather[0].id === 803) {
+      weatherTypeId = 804;
+    } else {
+      weatherTypeId = Math.floor(data.weather[0].id/100)*100;
+    }
+	
 	//using the limited font awesome icons so limited symbols BUT can alter the sizes so sticking with font awesome!
 		function weatherIcon(id,avTemp) {
 
-			if(id===200) {
-				$('.wIconTemp').append('<i class="fa fa-bolt fa-3x"></i>'+'<span class="temp">'+avTemp+'&deg;C'+'</span>');
-			} else if(id===300) {
-				$('.wIconTemp').append('<i class="fa fa-tint fa-3x"></i>'+'<span class="temp">'+avTemp+'&deg;C'+'</span>');
-			} else if(id===500) {
-				$('.wIconTemp').append('<i class="fa fa-tint fa-3x"></i>'+'<span class="temp">'+avTemp+'&deg;C'+'</span>'); //not great rain pic
-		  } else if(id===600) {
-		  	$('.wIconTemp').append('<i class="fa fa-exclamation-triangle fa-2x"></i>'+'<span class="temp">'+avTemp+'&deg;C'+'</span>');
-		  } else if(id===700) {
-		  	$('.wIconTemp').append('<i class="fa fa-cloud fa-3x"></i>'+'<span class="temp">'+avTemp+'&deg;C'+'</span>');
-		  } else if(id===800) {
-				$('.wIconTemp').append('<i class="fa fa-sun-o fa-3x"></i>'+'<span class="temp">'+avTemp+'&deg;C'+'</span>');
-			} /*else if(id===801 || id===802 || id ===803) { 
-				$('.wIconTemp').append('<i class="wi-day-cloudy"></i>'+'<span class="temp">'+avTemp+'&deg;C'+'</span>');
-			}*/ else if(id===804) {
-        $('.wIconTemp').append('<i class="fa fa-cloud fa-3x"></i>'+'<span class="temp">'+avTemp+'&deg;C'+'</span>');
-      } else if(id===900) {
-				$('.wIconTemp').append('<i class="fa fa-exclamation-triangle fa-2x"></i>'+'<span class="temp">'+avTemp+'&deg;C'+'</span>');
-			}
+			var weatherObj = {
+        200: '<i class="fa fa-bolt fa-3x"></i>',
+        300: '<i class="fa fa-tint fa-3x"></i>',
+        500: '<i class="fa fa-tint fa-3x"></i>',
+        600: '<i class="fa fa-exclamation-triangle fa-2x"></i>',
+        700: '<i class="fa fa-cloud fa-3x"></i>',
+        800: '<i class="fa fa-sun-o fa-3x"></i>',
+        804: '<i class="fa fa-cloud fa-3x"></i>',
+        900: '<i class="fa fa-exclamation-triangle fa-2x"></i>'
+      };
+
+  //fucntion to append icond and temp to the correct div much tidier than if and else statements
+    var appendIconAndTemp = function(ob, temp) {
+      $('.wIconTemp').append(ob+avTemp+'&deg;C');
+    };
+
+    appendIconAndTemp(weatherObj[weatherTypeId],avTemp);
 
 		}
 
@@ -192,7 +189,7 @@ console.log(data.weather[0].id);
       }
           
     }
-    //when the anchor is clicked to show the new messages remove color
+//when the anchor is clicked to show the new messages remove color
     $('#anchorsAway').on('click',function() {
       if($('.fa-anchor').hasClass('red')) {
         $('.fa-anchor').removeClass('red');
@@ -207,18 +204,16 @@ console.log(data.weather[0].id);
       }
     });
 
-
-});
+  });
 
 
   function displayChatMessage(name, text) {
     $('<li/>').text(text).prepend($('<span/>').text(name+': ')).appendTo($('#messagesDiv'));
-   // $('#messagesDiv')[0].scrollTop = $('#messagesDiv')[0].scrollHeight;
     $('.messages').scrollTop($('.messages').prop('scrollHeight'));
   }
 
   
-
+//calling previous functions at the bottom of this document.ready
 
   updateClock();
   setInterval(updateClock, 1000);
